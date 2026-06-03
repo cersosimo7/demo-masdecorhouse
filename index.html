@@ -275,6 +275,19 @@
 
     .g-recaptcha { transform-origin: left top; }
 
+    /* ── SUCCESS TOAST ── */
+    .toast {
+      position: fixed; bottom: 2rem; left: 50%; transform: translateX(-50%) translateY(100px);
+      background: var(--gold); color: var(--white);
+      padding: 1rem 2rem; border-radius: 3px;
+      font-size: .9rem; font-weight: 500;
+      box-shadow: 0 8px 30px rgba(0,0,0,.2);
+      z-index: 200; opacity: 0;
+      transition: transform .4s ease, opacity .4s ease;
+      white-space: nowrap;
+    }
+    .toast.show { transform: translateX(-50%) translateY(0); opacity: 1; }
+
     .form-submit {
       background: var(--gold); color: var(--white);
       border: none; border-radius: 3px;
@@ -430,7 +443,7 @@
 
         <input type="hidden" name="captcha_settings" value='{"keyname":"masdecorhouse","fallback":"true","orgId":"00Da500001Z5Ync","ts":""}'>
         <input type="hidden" name="oid" value="00Da500001Z5Ync">
-        <input type="hidden" name="retURL" value="">
+        <input type="hidden" name="retURL" value="https://cersosimo7.github.io/demo-masdecorhouse/?enviado=1">
 
         <!-- debug (uncomment for testing)
         <input type="hidden" name="debug" value="1">
@@ -472,6 +485,9 @@
     </div>
   </section>
 
+  <!-- SUCCESS TOAST -->
+  <div class="toast" id="toast">¡Mensaje enviado! Nos pondremos en contacto pronto.</div>
+
   <!-- FOOTER -->
   <footer>
     <a href="#" class="footer-logo"><img src="image.png" alt="MasDecorHouse"></a>
@@ -479,6 +495,14 @@
   </footer>
 
   <script>
+    // Show toast if redirected back from Salesforce
+    if (new URLSearchParams(window.location.search).get('enviado') === '1') {
+      const toast = document.getElementById('toast');
+      setTimeout(() => toast.classList.add('show'), 300);
+      setTimeout(() => toast.classList.remove('show'), 5000);
+      history.replaceState(null, '', window.location.pathname);
+    }
+
     // Nav shadow on scroll
     const navbar = document.getElementById('navbar');
     window.addEventListener('scroll', () => {
