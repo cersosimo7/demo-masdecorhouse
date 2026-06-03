@@ -29,8 +29,8 @@
     :root {
       --cream:   #FAF7F2;
       --sand:    #F0E9DC;
-      --gold:    #C8A97E;
-      --gold-dk: #A8895E;
+      --gold:    #E06020;
+      --gold-dk: #C04E10;
       --dark:    #1E1C1A;
       --text:    #3D3A36;
       --muted:   #8A8480;
@@ -59,14 +59,8 @@
     }
     nav.scrolled { box-shadow: 0 2px 30px rgba(0,0,0,.06); }
 
-    .nav-logo {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.35rem;
-      color: var(--dark);
-      text-decoration: none;
-      letter-spacing: .02em;
-    }
-    .nav-logo span { color: var(--gold); }
+    .nav-logo { text-decoration: none; display: flex; align-items: center; }
+    .nav-logo img { height: 46px; width: auto; border-radius: 4px; display: block; }
 
     .nav-links { display: flex; gap: 2rem; list-style: none; }
     .nav-links a {
@@ -221,7 +215,7 @@
       content: '';
       position: absolute; top: -100px; right: -100px;
       width: 500px; height: 500px; border-radius: 50%;
-      background: radial-gradient(circle, rgba(200,169,126,.12) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(224,96,32,.12) 0%, transparent 70%);
     }
     .contact-inner {
       max-width: 900px; margin: 0 auto;
@@ -275,7 +269,7 @@
     .form-group input:focus,
     .form-group textarea:focus {
       border-color: var(--gold);
-      background: rgba(200,169,126,.07);
+      background: rgba(224,96,32,.07);
     }
     .form-group textarea { resize: vertical; min-height: 100px; }
 
@@ -301,12 +295,9 @@
       display: flex; align-items: center; justify-content: space-between;
       flex-wrap: wrap; gap: 1rem;
     }
-    .footer-logo {
-      font-family: 'Playfair Display', serif;
-      font-size: 1rem; color: rgba(255,255,255,.4);
-      text-decoration: none;
-    }
-    .footer-logo span { color: var(--gold); }
+    .footer-logo { text-decoration: none; display: flex; align-items: center; }
+    .footer-logo img { height: 36px; width: auto; border-radius: 3px; opacity: .7; transition: opacity .25s; }
+    .footer-logo:hover img { opacity: 1; }
     footer p { font-size: .75rem; color: rgba(255,255,255,.2); }
 
     /* ── SCROLL ANIMATION TRIGGER ── */
@@ -322,7 +313,7 @@
 
   <!-- NAV -->
   <nav id="navbar">
-    <a href="#" class="nav-logo">Mas<span>Decor</span>House</a>
+    <a href="#" class="nav-logo"><img src="image.png" alt="MasDecorHouse"></a>
     <ul class="nav-links">
       <li><a href="#servicios">Servicios</a></li>
       <li><a href="#contacto">Contacto</a></li>
@@ -488,7 +479,7 @@
 
   <!-- FOOTER -->
   <footer>
-    <a href="#" class="footer-logo">Mas<span>Decor</span>House</a>
+    <a href="#" class="footer-logo"><img src="image.png" alt="MasDecorHouse"></a>
     <p>&copy; 2026 MasDecorHouse. Todos los derechos reservados.</p>
   </footer>
 
